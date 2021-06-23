@@ -45,7 +45,7 @@ def main():
             public_key_file_name = "pk" + str(i) + ".pem"
             public_key_file = open(public_key_file_name, 'r')
             public_key = load_pem_public_key(public_key_file.read().encode())
-            ip_port = ips_ports[int(i) - 1].split()
+            ip_port = ips_ports[int(i) - 2].split()
             ip = socket.inet_aton(ip_port[0])
             port = int(ip_port[1]).to_bytes(2, 'big')
             msg = public_key.encrypt(ip + port + msg, padding.OAEP(
